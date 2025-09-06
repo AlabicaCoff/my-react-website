@@ -2,7 +2,7 @@ import ProjectCard from "../ProjectCard";
 
 export default function ProjectSection({ projects }) {
     return (
-        <section className="min-h-screen py-10 lg:py-16">
+        <section className="min-h-screen py-10 lg:py-16" id="projects">
             <div className="min-h-screen text-4xl ">
                 <div className="mb-16 text-center font-bold">
                     <h2>Projects</h2>
