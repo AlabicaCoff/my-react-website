@@ -1,4 +1,4 @@
-import SkillCard from "../SkillCard";
+import SkillCard from './SkillCard';
 
 export default function SkillSection({ skills }) {
   return (
