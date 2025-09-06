@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import TechStackSlider from "./components/TechStackSlider";
 
 export default function Page() {
