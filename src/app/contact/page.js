@@ -5,53 +5,6 @@ import Form from "next/form";
 import Link from "next/link";
 
 export default function Contact() {
-  const [location, setLocation] = useState({ lat: null, lon: null });
-  const [weather, setWeather] = useState(null);
-  const [error, setError] = useState(null);
-
-  // Your OpenWeather API key
-  const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
-
-  useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setLocation({ lat: latitude, lon: longitude });
-        },
-        (err) => {
-          setError(
-            "Unable to retrieve your location. Please enable location services."
-          );
-          console.error(err.message);
-        }
-      );
-    } else {
-      setError("Geolocation is not supported by your browser.");
-    }
-  }, []);
-
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&units=metric&appid=${apiKey}`
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch weather data");
-        }
-
-        const data = await response.json();
-        setWeather(data);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-
-    fetchWeather();
-  }, [location, apiKey]);
-
   return (
     <>
       <main className="min-h-screen">
@@ -186,18 +139,6 @@ export default function Contact() {
             </div>
           </div>
         </section>
-        <div className="fixed bottom-2 right-2 bg-gray-100">
-          {error ? (
-            <p className="text-red-600">{error}</p>
-          ) : weather ? (
-            <div className="p-6 bg-white rounded-md shadow-md text-center">
-              <h2 className="text-xl font-semibold">{weather.name}</h2>
-              <p className="text-lg">{Math.round(weather.main.temp)}°C</p>
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
       </main>
     </>
   );
