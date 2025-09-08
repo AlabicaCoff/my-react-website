@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function EducationSection({ education }) {
   return (
-    <section className="min-h-screen py-10 lg:py-16" id="education">
+    <section className="min-h-screen py-10 lg:py-16" id="experience">
       <div className="min-h-screen text-4xl ">
         <div className="mb-16 text-center font-bold">
           <h2>Education</h2>
