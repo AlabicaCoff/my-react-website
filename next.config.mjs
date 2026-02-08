@@ -14,6 +14,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.hub.central.dynatrace.com",
+      },
+      {
+        protocol: "https",
+        hostname: "icon.icepanel.io",
+      },
+      {
+        protocol: "https",
+        hostname: "dl.flathub.org",
+      },
     ],
   },
 };

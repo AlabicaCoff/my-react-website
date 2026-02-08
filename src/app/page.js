@@ -2,15 +2,19 @@
 import Image from "next/image";
 import { useMemo, useState, useEffect } from "react";
 import TechStackSlider from "./components/TechStackSlider";
+import EducationSection from "./components/sections/Education";
 
 export default function Page() {
-  const words = useMemo(() => [
-    "Creating innovative experience.",
-    "Building the future.",
-    "Coding for a connected world.",
-  ], []);
+  const words = useMemo(
+    () => [
+      "Creating innovative experience.",
+      "Building the future.",
+      "Coding for a connected world.",
+    ],
+    [],
+  );
   const [currentWord, setCurrentWord] = useState(
-    "Creating innovative experiences."
+    "Creating innovative experiences.",
   );
   const [wordIndex, setWordIndex] = useState(1);
   const [charIndex, setCharIndex] = useState(0);
@@ -39,6 +43,27 @@ export default function Page() {
   useEffect(() => {
     setCurrentWord(words[wordIndex].slice(0, charIndex));
   }, [charIndex, wordIndex, words]);
+
+  const education = {
+    pibul: {
+      name: "Pibulwitthayalai School, Lopburi",
+      program: "Science - Math General Program",
+      gpax: 3.75,
+      duration: "2018 - 2021",
+      detail:
+        "Pibulwitthayalai School is the first and only large special high school of the Departmentof General Education in the region. Under the jurisdiction of the Singburi Secondary Educational Service Area Office, Ang Thong, Area 5, Office of the Beginner Education Commission. Ministry of Education It has the status of being a school in Lopburi Province. Located at 777 Narai Maharat Road. Lopburi Municipality, Tha Hin Subdistrict, Mueang Lopburi District Lopburi Province",
+      imageUrl: "/images/school/pibul.jpg",
+    },
+    kmitl: {
+      name: "King Mongkut's Institute of Technology Ladkrabang",
+      program: "B. Engineering (Computer Engineering)",
+      gpax: 3.3,
+      duration: "Expected 2026",
+      detail:
+        "King Mongkut's Institute of Technology Ladkrabang(KMITL or KMIT Ladkrabang for short) is a research and educational institution in Thailand. It is situated in Lat Krabang District, Bangkok approximately 30 km east of the city center. The university consists of nine faculties: engineering, architecture, science, industrial education and technology, agricultural technology, information technology, food industry, liberal arts, and medicine.",
+      imageUrl: "/images/school/kmitl.jpg",
+    },
+  };
 
   return (
     <>
@@ -96,6 +121,7 @@ export default function Page() {
             />
           </div>
         </section>
+        <EducationSection education={education}/>
       </main>
     </>
   );

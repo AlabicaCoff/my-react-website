@@ -1,248 +1,319 @@
+"use client";
+
 import SkillSection from "../components/sections/Skills";
-import EducationSection from "../components/sections/Education";
+import ExperienceSection from "../components/sections/Experience";
 import ProjectSection from "../components/sections/Projects";
+import ActivitySection from "../components/sections/Activities";
 
 export default function Detail() {
-  var skills = {
-    programming_skills: {
+  const skills = {
+    Programming: {
       python: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
         title: "Python",
-        progress: 80,
-      },
-      csharp: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
-        title: "C#",
-        progress: 70,
+        level: "Advanced",
       },
       javascript: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
         title: "JavaScript",
-        progress: 70,
+        level: "Advanced",
       },
       typescript: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
         title: "TypeScript",
-        progress: 60,
+        level: "Intermediate",
       },
-      c: {
+      csharp: {
         logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg",
-        title: "C",
-        progress: 50,
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+        title: "C#",
+        level: "Intermediate",
       },
       cpp: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
         title: "C++",
-        progress: 50,
+        level: "Beginner",
+      },
+      c: {
+        logoUrl:
+          "https://icongr.am/devicon/c-original.svg?size=128&color=ffffff",
+        title: "C",
+        level: "Beginner",
+      },
+      cembedded: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg",
+        title: "C Embedded ",
+        level: "Beginner",
       },
     },
 
-    frontend_skills: {
+    Frontend: {
       html: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
         title: "HTML",
-        progress: 80,
+        level: "Advanced",
       },
       css: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
         title: "CSS",
-        progress: 80,
-      },
-      sass: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
-        title: "Sass",
-        progress: 60,
-      },
-      ejs: {
-        logoUrl:
-          "https://img.icons8.com/?size=100&id=Pxe6MGswB8pX&format=png&color=000000",
-        title: "EJS",
-        progress: 60,
-      },
-      angular: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg",
-        title: "Angular",
-        progress: 60,
-      },
-      nextjs: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-        title: "NextJS",
-        progress: 50,
-      },
-      react: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg",
-        title: "React",
-        progress: 50,
+        level: "Advanced",
       },
       bootstrap: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
         title: "Bootstrap",
-        progress: 80,
+        level: "Advanced",
       },
       tailwind: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
         title: "Tailwind",
-        progress: 80,
+        level: "Advanced",
+      },
+      sass: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
+        title: "Sass",
+        level: "Intermediate",
+      },
+      angular: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg",
+        title: "Angular",
+        level: "Intermediate",
+      },
+      primeng: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/primeng/primeng-original.svg",
+        title: "PrimeNG",
+        level: "Beginner",
+      },
+      nextjs: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+        title: "NextJS",
+        level: "Beginner",
+      },
+      react: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg",
+        title: "React",
+        level: "Beginner",
+      },
+      material_ui: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg",
+        title: "Material UI",
+        level: "Beginner",
       },
     },
 
-    backend_skills: {
-      nodejs: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain-wordmark.svg",
-        title: "Node.js",
-        progress: 80,
-      },
+    Backend: {
       dotnetcore: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
         title: ".NET Core",
-        progress: 80,
+        level: "Advanced",
       },
       fast_api: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
         title: "FastAPI",
-        progress: 50,
+        level: "Intermediate",
+      },
+      nodejs: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain-wordmark.svg",
+        title: "Node.js",
+        level: "Beginner",
+      },
+      express: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+        title: "Express",
+        level: "Beginner",
+      },
+      supabase: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
+        title: "Supabase",
+        level: "Beginner",
       },
     },
 
-    database_skills: {
+    Database: {
       sql_server: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
         title: "SQL Server",
-        progress: 70,
-      },
-      my_sql: {
-        logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
-        title: "My SQL",
-        progress: 70,
+        level: "Advanced",
       },
       progresql: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
         title: "ProgreSQL",
-        progress: 70,
+        level: "Advanced",
+      },
+      my_sql: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+        title: "My SQL",
+        level: "Intermediate",
       },
       mongodb: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
         title: "MongoDB",
-        progress: 40,
+        level: "Beginner",
       },
       redis: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
         title: "Redis",
-        progress: 40,
+        level: "Beginner",
       },
     },
 
-    devops_skills: {
+    DevOps: {
       linux: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
         title: "Linux",
-        progress: 70,
+        level: "Advanced",
       },
       git: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
         title: "Git",
-        progress: 70,
+        level: "Advanced",
       },
       docker: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg",
         title: "Docker",
-        progress: 60,
+        level: "Intermediate",
       },
       kubernetes: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
         title: "Kubernetes",
-        progress: 50,
+        level: "Intermediate",
+      },
+      aws: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+        title: "AWS",
+        level: "Intermediate",
       },
       google_cloud: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
         title: "Google Cloud",
-        progress: 50,
+        level: "Intermediate",
       },
-      vercel: {
+      jenkins: {
         logoUrl:
-          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
-        title: "Vercel",
-        progress: 50,
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg",
+        title: "Jenkins",
+        level: "Intermediate",
       },
       github_actions: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg",
         title: "GitHub Actions",
-        progress: 50,
+        level: "Beginner",
+      },
+      vercel: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
+        title: "Vercel",
+        level: "Beginner",
+      },
+      terraform: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
+        title: "Terraform",
+        level: "Beginner",
+      },
+      ansible: {
+        logoUrl:
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg",
+        title: "Ansible",
+        level: "Beginner",
       },
     },
 
-    others: {
+    Others: {
       figma: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
         title: "Figma",
-        progress: 70,
+        level: "Intermediate",
+      },
+      adk: {
+        logoUrl:
+          "https://cdn.hub.central.dynatrace.com/hub/console/drafts/45/logo/agent-development-kit-icon.png",
+        title: "Agent Development Kit",
+        level: "Intermediate",
       },
       n8n: {
         logoUrl:
           "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/light/n8n-color.png",
         title: "n8n",
-        progress: 60,
+        level: "Intermediate",
       },
       jira: {
         logoUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg",
         title: "Jira",
-        progress: 50,
+        level: "Beginner",
+      },
+      arduino: {
+        logoUrl: "https://icon.icepanel.io/Technology/svg/Arduino.svg",
+        title: "Arduino",
+        level: "Beginner",
+      },
+      stm32: {
+        logoUrl:
+          "https://dl.flathub.org/repo/appstream/x86_64/icons/128x128/com.st.STM32CubeIDE.png",
+        title: "STM32",
+        level: "Beginner",
       },
     },
   };
 
-  var education = {
-    pibul: {
-      name: "Pibulwitthayalai School, Lopburi",
-      program: "Science - Math General Program",
-      gpax: 3.75,
-      duration: "2018 - 2021",
-      detail:
-        "Pibulwitthayalai School is the first and only large special high school of the Departmentof General Education in the region. Under the jurisdiction of the Singburi Secondary Educational Service Area Office, Ang Thong, Area 5, Office of the Basic Education Commission. Ministry of Education It has the status of being a school in Lopburi Province. Located at 777 Narai Maharat Road. Lopburi Municipality, Tha Hin Subdistrict, Mueang Lopburi District Lopburi Province",
-      imageUrl: "/images/school/pibul.jpg",
+  const experiences = {
+    internship1: {
+      position: "Fullstack Developer Intern",
+      company: "Gofive Co.,Ltd.",
+      address: "Bangkok, Thailand",
+      duration: "Apr 2025 - Jun 2025",
+      details: [],
     },
-    kmitl: {
-      name: "King Mongkut's Institute of Technology Ladkrabang",
-      program: "B. Engineering (Computer Engineering)",
-      gpax: 3.3,
-      duration: "Expected 2026",
-      detail:
-        "King Mongkut's Institute of Technology Ladkrabang(KMITL or KMIT Ladkrabang for short) is a research and educational institution in Thailand. It is situated in Lat Krabang District, Bangkok approximately 30 km east of the city center. The university consists of nine faculties: engineering, architecture, science, industrial education and technology, agricultural technology, information technology, food industry, liberal arts, and medicine.",
-      imageUrl: "/images/school/kmitl.jpg",
+    freelance1: {
+      position: "Backend Developer Freelance",
+      company: "MojiTown Co.,Ltd.",
+      address: "Remote",
+      duration: "Aug 2025 - Oct 2025",
+      details: [],
     },
+    internship2: {
+      position: "DevOps Engineer Intern",
+      company: "Blendata Co.,Ltd.",
+      address: "Bangkok, Thailand",
+      duration: "Jan 2026 - Apr 2026",
+      details: []
+    }
   };
 
-  var projects = {
+  const projects = {
     project1: {
       projectImage: "/images/project/project1.png",
       projectTitle: "Book Notes",
@@ -275,7 +346,7 @@ export default function Detail() {
       projectImage: "/images/project/project4.png",
       projectTitle: "CaseBamp",
       projectDescription:
-        "Basecamp Clone Website - a Project management web application, As a part of Object Oriented Programming College Course to learn about OOP concept. Built frontend with pure HTML, CSS & Javascript and Built Backend with Python FastAPI and This web application did not connect to the database.",
+        "Basecamp Clone Website - a Project management web application, As a part of Object Oriented Programming College Course to learn about OOP concept. Built Frontend with pure HTML, CSS & Javascript and Built Backend with Python FastAPI and This web application did not connect to the Database.",
       tags: [
         "Fullstack",
         "Python",
@@ -292,7 +363,7 @@ export default function Detail() {
       projectImage: "/images/project/project2.png",
       projectTitle: "JOINHUB",
       projectDescription:
-        "JOINHUB website built with .NET Core MVC and MySQL As a part of web application development college course Built web application for basic CRUD, join, search, filter activities, notifications & authentication.",
+        "JOINHUB website built with .NET Core MVC and MySQL As a part of web application development college course Built web application for Beginner CRUD, join, search, filter activities, notifications & authentication.",
       tags: ["Backend", "C#", ".NET Core MVC", "MySQL"],
       webUrl: "https://bit.ly/4etgQlh",
       githubUrl: "https://github.com/AlabicaCoff/JOINHUB",
@@ -309,14 +380,25 @@ export default function Detail() {
     },
   };
 
+  const activities = {
+    activity1: {
+      title: "42Bangkok",
+      description:
+        "Participated in the Discovery Piscine event by 42Bangkok, completing various coding challenges and projects to enhance my programming skills.",
+      duration: "July 2023",
+    },
+  };
+
   return (
     <>
       <main className="min-h-screen">
-        <SkillSection skills={skills}/>
+        <SkillSection skills={skills} />
 
-        <EducationSection education={education}/>
+        <ExperienceSection experiences={experiences} />
 
-        <ProjectSection projects={projects}/>
+        <ProjectSection projects={projects} />
+
+        <ActivitySection activities={activities} />
       </main>
     </>
   );
